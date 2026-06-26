@@ -34,6 +34,16 @@ export function HeroSection() {
           transition={{ duration: 0.65, ease: "easeOut" }}
           className="max-w-3xl"
         >
+          <div className="relative mb-7 h-20 w-64 overflow-hidden rounded-lg border border-white/15 bg-white/95 p-2 shadow-glow sm:h-24 sm:w-80">
+            <Image
+              src={site.logo}
+              alt="GOGO TYRE logo"
+              fill
+              priority
+              sizes="(min-width: 640px) 320px, 256px"
+              className="object-contain px-2"
+            />
+          </div>
           <p className="text-sm font-black uppercase tracking-[0.24em] text-volt">{site.name} · Norwich tyre garage</p>
           <h1 className="mt-5 text-balance text-5xl font-black leading-[0.94] tracking-tight text-white sm:text-6xl lg:text-7xl">
             Tyres Fitted the Modern Way

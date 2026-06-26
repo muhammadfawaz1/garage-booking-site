@@ -17,7 +17,9 @@ export const metadata: Metadata = {
     "GOGO TYRE is a modern tyre garage in Norwich for new tyres, same-day fitting, mobile tyre fitting, puncture repairs, wheel balancing and TPMS support.",
   applicationName: site.name,
   icons: {
-    icon: "/favicon.ico"
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" }
+    ]
   }
 };
 

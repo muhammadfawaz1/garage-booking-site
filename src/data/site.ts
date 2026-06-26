@@ -17,6 +17,7 @@ export const site = {
     weekdays: "Monday to Saturday: 9:00 AM - 6:00 PM",
     sunday: "Sunday: Closed"
   },
+  logo: "/images/Logo.png",
   heroImage: "/images/hero/homepage-hero.png"
 };
 
