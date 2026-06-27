@@ -17,7 +17,7 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-graphite/84 backdrop-blur-xl">
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <Link href="/" className="flex items-center gap-3" aria-label="GOGO TYRE home">
-          <span className="relative h-11 w-36 sm:w-44">
+          <span className="relative h-16 w-48 sm:w-56">
             <Image
               src={site.logo}
               alt="GOGO TYRE logo"
