@@ -1,3 +1,6 @@
+
+
+
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
@@ -10,8 +13,8 @@ export function Footer() {
       <Container>
         <div className="grid gap-10 lg:grid-cols-[1.15fr_.85fr_.85fr]">
           <div>
-            <div className="relative h-16 w-56 overflow-hidden rounded-lg border border-white/10 bg-white/95 p-2 shadow-glow">
-              <Image src={site.logo} alt="GOGO TYRE logo" fill sizes="224px" className="object-contain px-2" />
+            <div className="relative h-16 w-56">
+              <Image src={site.logo} alt="GOGO TYRE logo" fill sizes="224px" className="object-contain" />
             </div>
             <p className="mt-3 max-w-md text-sm leading-7 text-chrome">
               Modern tyre fitting in Norwich with new tyres, same-day fitting, puncture repairs, wheel balancing, TPMS support and mobile tyre fitting.
