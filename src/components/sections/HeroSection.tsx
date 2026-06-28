@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
@@ -15,14 +14,19 @@ export function HeroSection() {
 
   return (
     <section className="relative isolate min-h-[720px] overflow-hidden pt-28 sm:min-h-[760px] lg:min-h-[820px]">
-      <Image
-        src={site.heroImage}
-        alt="Premium modern tyre fitting garage with alloy wheel and tyre at GOGO TYRE Norwich"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+
+      {/* ── Background video replaces hero image ── */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover object-center"
+      >
+        <source src="/herovideo.mp4" type="video/mp4" />
+      </video>
+
+      {/* ── Overlays ── */}
       <div className="absolute inset-0 bg-gradient-to-r from-graphite via-graphite/82 to-graphite/20" />
       <div className="absolute inset-0 bg-gradient-to-t from-graphite via-transparent to-graphite/40" />
       <div className="tread-grid absolute inset-0 opacity-25" />
@@ -34,16 +38,19 @@ export function HeroSection() {
           transition={{ duration: 0.65, ease: "easeOut" }}
           className="max-w-3xl"
         >
-          <div className="relative mb-7 h-20 w-64 sm:h-24 sm:w-80">
-            <Image
-              src={site.logo}
-              alt="GOGO TYRE logo"
-              fill
-              priority
-              sizes="(min-width: 640px) 320px, 256px"
-              className="object-contain"
-            />
-          </div>
+          {/* Logo — plain img avoids Next.js optimizer error; mix-blend-mode removes white bg */}
+          <img
+            src={site.logo}
+            alt="GOGO TYRE logo"
+            style={{
+              width: "auto",
+              height: "80px",
+              objectFit: "contain",
+              mixBlendMode: "screen",
+              marginBottom: "1.75rem",
+            }}
+          />
+
           <p className="text-sm font-black uppercase tracking-[0.24em] text-volt">{site.name} · Norwich tyre garage</p>
           <h1 className="mt-5 text-balance text-5xl font-black leading-[0.94] tracking-tight text-white sm:text-6xl lg:text-7xl">
             Tyres Fitted the Modern Way
