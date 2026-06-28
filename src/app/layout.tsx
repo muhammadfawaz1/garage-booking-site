@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { StickyMobileCTA } from "@/components/layout/StickyMobileCTA";
+import { FloatingActions } from "@/components/FloatingActions";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/data/site";
 import { localBusinessSchema } from "@/lib/seo";
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main>{children}</main>
         <Footer />
         <StickyMobileCTA />
+        <FloatingActions />
       </body>
     </html>
   );
