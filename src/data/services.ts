@@ -38,14 +38,14 @@ export const servicePages: Record<ServiceSlug, Service> = {
   "tyres-norwich": {
     slug: "tyres-norwich",
     navLabel: "New Tyres",
-    title: "New Tyres in Norwich",
+    title: "New Tyres in Norwich",                          // ✅ KEEP "in Norwich" — high search intent
     metaTitle: "Tyres Norwich | Same-Day New Tyre Fitting | GOGO TYRE",
     metaDescription:
       "New tyres in Norwich from GOGO TYRE. Budget, mid-range and premium tyres, same-day fitting, van tyres, 4x4 tyres and leverless rim-safe fitting.",
     eyebrow: "New tyres only",
     heroTitle: "Same-Day New Tyres in Norwich",
     heroText:
-      "Get new tyres fitted the modern way at GOGO TYRE in Norwich, with budget, mid-range and premium options for cars, vans, 4x4s, sport vehicles and caravans.",
+      "Budget to premium options for cars, vans, 4x4s and more — fitted the modern way with leverless, rim-safe equipment.",  // ✅ trimmed run-on list
     keywords: [
       "tyres Norwich",
       "tyre fitting Norwich",
@@ -96,14 +96,14 @@ export const servicePages: Record<ServiceSlug, Service> = {
   "puncture-repairs-norwich": {
     slug: "puncture-repairs-norwich",
     navLabel: "Puncture Repairs",
-    title: "Puncture Repairs in Norwich",
+    title: "Puncture Repairs",                              // ✅ dropped "in Norwich"
     metaTitle: "Puncture Repair Norwich | Quick Tyre Repairs | GOGO TYRE",
     metaDescription:
       "Quick puncture repair in Norwich from GOGO TYRE. Safe tyre inspections, practical advice and repair where the damage is suitable.",
     eyebrow: "Fast local support",
     heroTitle: "Quick Puncture Repair in Norwich",
     heroText:
-      "A puncture does not always mean a replacement tyre. We inspect the tyre properly and repair it where it is safe and suitable to do so.",
+      "Not every puncture needs a new tyre. We'll inspect it properly and repair it on the spot if it's safe to.",  // ✅ rewritten — honest, not legal-sounding
     keywords: ["puncture repair Norwich", "tyre puncture repair Norwich", "quick puncture repair Norwich"],
     icon: Wrench,
     image: "/images/services/puncture-repairs-hero.png",
@@ -146,7 +146,7 @@ export const servicePages: Record<ServiceSlug, Service> = {
   "wheel-balancing-norwich": {
     slug: "wheel-balancing-norwich",
     navLabel: "Wheel Balancing",
-    title: "Wheel Balancing in Norwich",
+    title: "Wheel Balancing",                               // ✅ dropped "in Norwich"
     metaTitle: "Wheel Balancing Norwich | Computerised Tyre Balancing | GOGO TYRE",
     metaDescription:
       "Computerised wheel balancing in Norwich for smoother driving, reduced vibration and more even tyre wear. Visit GOGO TYRE on Page Road.",
@@ -196,14 +196,14 @@ export const servicePages: Record<ServiceSlug, Service> = {
   "tpms-tyre-pressure-sensors-norwich": {
     slug: "tpms-tyre-pressure-sensors-norwich",
     navLabel: "TPMS Sensors",
-    title: "TPMS Tyre Pressure Sensors in Norwich",
+    title: "TPMS Tyre Pressure Sensors",                   // ✅ dropped "in Norwich"
     metaTitle: "TPMS Norwich | Tyre Pressure Sensor Replacement | GOGO TYRE",
     metaDescription:
       "TPMS and tyre pressure sensor support in Norwich. Sensor checks, replacement advice and tyre pressure warning help from GOGO TYRE.",
     eyebrow: "Pressure warning help",
     heroTitle: "TPMS Tyre Pressure Sensor Support in Norwich",
     heroText:
-      "A tyre pressure warning light can be a simple pressure issue or a sensor problem. GOGO TYRE can help check the system and advise on the right next step.",
+      "A tyre pressure warning light can be a simple pressure issue or a sensor problem. GOGO TYRE can help check the system and tell you exactly what it needs.",  // ✅ "tell you exactly what it needs"
     keywords: ["TPMS Norwich", "tyre pressure sensors Norwich", "TPMS sensor replacement Norwich"],
     icon: BatteryCharging,
     image: "/images/services/tpms-hero.png",
@@ -246,7 +246,7 @@ export const servicePages: Record<ServiceSlug, Service> = {
   "mobile-tyre-fitting-norwich": {
     slug: "mobile-tyre-fitting-norwich",
     navLabel: "Mobile Tyre Fitting",
-    title: "Mobile Tyre Fitting in Norwich",
+    title: "Mobile Tyre Fitting in Norwich",               // ✅ KEEP "in Norwich" — high search intent
     metaTitle: "Mobile Tyre Fitting Norwich | Tyres at Home or Work | GOGO TYRE",
     metaDescription:
       "Mobile tyre fitting in Norwich from GOGO TYRE. New tyres fitted at home, work or locally around Norwich where available.",
@@ -310,8 +310,8 @@ export const overviewServices = [
   {
     slug: "tyres-norwich",
     navLabel: "Leverless Fitting",
-    title: "Leverless Tyre Fitting",
-    heroText: "Rim-safe tyre fitting with modern equipment designed to protect alloy wheels.",
+    title: "Leverless Tyre Fitting",                       // ✅ already title-only — keep
+    heroText: "Rim-safe tyre fitting with modern equipment designed to protect alloy wheels. No levers means no scuffed rims — ideal for performance and alloy wheels.",  // ✅ added second sentence to match card length
     icon: ShieldCheck
   },
   servicePages["mobile-tyre-fitting-norwich"]

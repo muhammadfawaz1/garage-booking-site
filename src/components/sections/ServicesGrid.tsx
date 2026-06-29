@@ -7,29 +7,64 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function ServicesGrid() {
   return (
-    <section className="py-20">
-      <Container>
+    <section className="relative isolate overflow-hidden py-20">
+
+      {/* Section base — #121214 instead of pure black to break hero stacking */}
+      <div className="absolute inset-0 bg-[#121214]" />
+
+      {/* Background image — subtle texture, not a photo */}
+      <img
+        src="/images/services-bg.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover object-center opacity-[0.23]"
+      />
+
+      {/* Base dark overlay */}
+      <div className="absolute inset-0 bg-graphite/[0.88]" />
+
+      {/* Subtle right-edge fade */}
+      <div className="absolute inset-0 bg-gradient-to-l from-graphite/50 via-transparent to-transparent" />
+
+      {/* Top/bottom fades to blend with adjacent sections */}
+      <div className="absolute inset-0 bg-gradient-to-b from-graphite/70 via-transparent to-graphite/70" />
+
+      {/* Content */}
+      <Container className="relative z-10">
         <SectionHeading
           eyebrow="Core services"
           title="Everything you expect from a modern tyre garage."
           text="From new tyres and puncture repairs to TPMS support and mobile fitting, GOGO TYRE is set up for fast, clean, professional tyre work in Norwich."
         />
+
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {overviewServices.map((service) => {
             const Icon = service.icon;
             const href = `/${service.slug}`;
             return (
-              <Link key={service.navLabel} href={href} className="group">
-                <GlowCard className="h-full">
-                  <span className="grid h-12 w-12 place-items-center rounded-lg border border-electric/30 bg-electric/10 text-volt">
-                    <Icon className="h-6 w-6" aria-hidden="true" />
+              <Link
+                key={service.navLabel}
+                href={href}
+                className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-volt rounded-xl"
+              >
+                <GlowCard className="h-full transition-all duration-200 group-hover:border-volt/60 group-hover:shadow-[0_0_24px_rgba(180,255,0,0.08)] group-hover:-translate-y-0.5">
+
+                  {/* Icon box — volt-green tint, slightly larger for presence */}
+                  <span className="grid h-14 w-14 place-items-center rounded-xl border border-volt/40 bg-volt/10 text-volt shadow-[0_0_12px_rgba(180,255,0,0.15)] transition-colors duration-200 group-hover:border-volt/70 group-hover:bg-volt/15">
+                    <Icon className="h-7 w-7" aria-hidden="true" />
                   </span>
+
                   <h3 className="mt-5 text-xl font-black text-white">{service.title}</h3>
                   <p className="mt-3 min-h-[5.25rem] leading-7 text-chrome">{service.heroText}</p>
+
                   <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-volt">
                     Explore service
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden="true" />
+                    <ArrowRight
+                      className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
                   </span>
+
                 </GlowCard>
               </Link>
             );
