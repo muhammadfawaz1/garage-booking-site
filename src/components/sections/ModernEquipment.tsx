@@ -33,11 +33,11 @@ export function ModernEquipment() {
         src="/images/Homepage_Services_Overview_Image.png"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover object-center opacity-[0.23]"
+        className="absolute inset-0 h-full w-full object-cover object-center opacity-[0.29]"
       />
 
       {/* Heavy dark overlay — keeps image as texture, not photo */}
-      <div className="absolute inset-0 bg-graphite/[0.88]" />
+      <div className="absolute inset-0 bg-graphite/[0.85]" />
 
       {/* Left fade — darkens behind the text so it stays readable */}
       <div className="absolute inset-0 bg-gradient-to-r from-graphite/80 via-graphite/40 to-transparent" />
