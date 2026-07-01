@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { site } from "@/data/site";
 import type { Service } from "@/data/services";
 import { Container } from "@/components/ui/Container";
@@ -5,23 +6,37 @@ import { CTAButton } from "@/components/ui/CTAButton";
 
 type ServiceHeroProps = {
   service: Service;
+  heroVideo?: string;
+  heroImage?: string;
 };
 
-export function ServiceHero({ service }: ServiceHeroProps) {
+export function ServiceHero({ service, heroVideo, heroImage }: ServiceHeroProps) {
   const whatsappUrl = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi GOGO TYRE, I need help with ${service.title}.`)}`;
 
   return (
     <section className="relative overflow-hidden pt-32">
-      {/* Background video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover object-center"
-      >
-        <source src="/puncture-video.mp4" type="video/mp4" />
-      </video>
+      {/* Background media */}
+      {heroVideo && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+      )}
+      {!heroVideo && heroImage && (
+        <Image
+          src={heroImage}
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+        />
+      )}
+      {!heroVideo && !heroImage && <div className="absolute inset-0 bg-radial-grid" />}
 
       {/* Overlays */}
       <div className="absolute inset-0 bg-gradient-to-r from-graphite via-graphite/88 to-graphite/30" />
