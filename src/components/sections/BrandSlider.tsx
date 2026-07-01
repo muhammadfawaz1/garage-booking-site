@@ -17,7 +17,7 @@ const brandLogos: Record<string, string> = {
   Toyo: "toyotires.png",
   Kumho: "kumho.png",
   Nexen: "nexen.png",
-  Yokohama: "yokohama.webp",
+  Yokohama: "yokohama.png",
   Hankook: "hankook.png",
 };
 
