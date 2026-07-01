@@ -18,8 +18,8 @@ export function ContactSection() {
               text="Walk-ins are welcome, appointments are available, and mobile tyre fitting can be arranged around Norwich where suitable."
             />
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <CTAButton href={whatsappUrl} external icon="send">WhatsApp Quote</CTAButton>
-              <CTAButton href={site.mapsUrl} external variant="secondary">Get Directions</CTAButton>
+              <CTAButton href={whatsappUrl} external icon="whatsapp" iconPosition="left" variant="quote">WhatsApp Quote</CTAButton>
+              <CTAButton href={site.mapsUrl} external icon="pin" iconPosition="left" variant="secondary">Get Directions</CTAButton>
             </div>
           </div>
           <div className="rounded-lg border border-white/10 bg-white/[0.055] p-6 shadow-glow">
