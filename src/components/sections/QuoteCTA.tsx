@@ -12,9 +12,9 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 const steps = [
-  { rank: "1", suffix: "st", label: "WhatsApp", emphasis: true },
-  { rank: "2", suffix: "nd", label: "Call", emphasis: false },
-  { rank: "3", suffix: "rd", label: "Form", emphasis: false }
+  { rank: "1", suffix: "st", label: "WhatsApp" },
+  { rank: "2", suffix: "nd", label: "Call" },
+  { rank: "3", suffix: "rd", label: "Form" }
 ];
 
 export function QuoteCTA() {
@@ -27,36 +27,15 @@ export function QuoteCTA() {
           <div className="rounded-lg border border-white/10 bg-radial-grid p-7 shadow-glow">
             <p className="text-xs font-black uppercase tracking-[0.22em] text-volt">Get a quote</p>
 
-            <div className="mt-5 flex flex-col gap-3">
+            <div className="mt-5 flex flex-col gap-2">
               {steps.map((step) => (
-                <div key={step.rank} className="flex items-baseline gap-3">
-                  <span
-                    className={
-                      step.emphasis
-                        ? "font-black leading-none text-volt text-6xl sm:text-7xl"
-                        : "font-black leading-none text-chrome/60 text-2xl sm:text-3xl"
-                    }
-                  >
+                <div key={step.rank} className="flex items-baseline gap-2.5">
+                  <span className="font-black leading-none text-volt text-2xl sm:text-3xl">
                     {step.rank}
-                    <sup
-                      className={
-                        step.emphasis
-                          ? "align-super text-lg sm:text-xl text-volt/80"
-                          : "align-super text-xs text-chrome/50"
-                      }
-                    >
-                      {step.suffix}
-                    </sup>
+                    <sup className="align-super text-xs sm:text-sm text-volt/70">{step.suffix}</sup>
                   </span>
-                  <span
-                    className={
-                      step.emphasis
-                        ? "font-black text-white text-3xl sm:text-4xl"
-                        : "font-bold text-chrome/80 text-base sm:text-lg"
-                    }
-                  >
+                  <span className="font-black leading-none text-white text-2xl sm:text-3xl">
                     {step.label}
-                    {step.emphasis ? " first." : step.rank === "2" ? " second." : " third."}
                   </span>
                 </div>
               ))}
@@ -71,7 +50,7 @@ export function QuoteCTA() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-volt px-6 text-sm font-black text-graphite shadow-volt transition hover:bg-white"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-volt/50 bg-graphite px-6 text-sm font-black text-volt shadow-[0_0_25px_-4px_rgba(190,255,60,0.45)] transition hover:border-volt hover:bg-volt hover:text-graphite hover:shadow-volt"
               >
                 <WhatsAppIcon className="h-5 w-5" />
                 WhatsApp Quote

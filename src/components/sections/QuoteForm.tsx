@@ -121,7 +121,7 @@ Message: ${form.message}`;
 
       <button
         type="submit"
-        className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-volt px-5 text-sm font-black text-graphite shadow-volt transition hover:bg-white sm:w-auto"
+        className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-volt/50 bg-graphite px-5 text-sm font-black text-volt shadow-[0_0_25px_-4px_rgba(190,255,60,0.45)] transition hover:border-volt hover:bg-volt hover:text-graphite hover:shadow-volt sm:w-auto"
       >
         <WhatsAppIcon className="h-4 w-4" />
         Get Quote
