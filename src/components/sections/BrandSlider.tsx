@@ -36,7 +36,7 @@ export function BrandSlider() {
       </Container>
 
       {/* Track / road strip */}
-      <div className="brand-marquee relative mt-10 overflow-hidden border-y border-white/10 bg-[#0a0a0a] py-10">
+      <div className="brand-marquee relative mt-24 overflow-hidden border-y border-white/10 bg-[#0a0a0a] py-10">
         {/* constant dashed white center line, like a road */}
         <div
           className="pointer-events-none absolute left-0 top-1/2 h-[3px] w-full -translate-y-1/2"
