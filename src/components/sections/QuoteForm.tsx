@@ -130,7 +130,7 @@ Message: ${form.message}`;
           <p className="mt-2 text-sm leading-6 text-chrome">
             This demo form is not connected to email yet. Send the details directly on WhatsApp for the fastest response.
           </p>
-          
+          <a
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
