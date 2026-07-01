@@ -50,7 +50,7 @@ export function BrandSlider() {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-[#0a0a0a] to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-[#0a0a0a] to-transparent" />
 
-        <div className="relative z-20 flex min-w-full animate-[marquee_35s_linear_infinite] items-center gap-10 px-2">
+        <div className="relative z-20 flex min-w-full animate-[marquee_24s_linear_infinite] items-center gap-10 px-2">
           {brands.map((brand, index) => {
             const logo = brandLogos[brand];
             return (
