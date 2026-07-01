@@ -18,7 +18,7 @@ export default function TpmSensorsNorwichPage() {
     <>
       <JsonLd data={serviceSchema(service)} />
       <JsonLd data={faqSchema(service.faqs)} />
-      <ServiceHero service={service} />
+      <ServiceHero service={service} heroVideo="/tpms.mp4" />
       <ServiceContent service={service} />
     </>
   );
