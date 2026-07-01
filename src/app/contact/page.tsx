@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { QuoteCTA } from "@/components/sections/QuoteCTA";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -18,7 +19,15 @@ export default function ContactPage() {
     <>
       <JsonLd data={localBusinessSchema()} />
       <section className="relative overflow-hidden pt-32">
-        <div className="absolute inset-0 bg-radial-grid" />
+        <Image
+          src="/images/contact.png"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-graphite via-graphite/88 to-graphite/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-graphite via-transparent to-graphite/40" />
         <Container className="relative z-10 py-20">
           <div className="max-w-4xl">
             <p className="text-sm font-black uppercase tracking-[0.24em] text-volt">Contact GOGO TYRE</p>
