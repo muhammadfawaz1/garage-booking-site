@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
-import { CheckCircle2, MessageCircle } from "lucide-react";
+import { CheckCircle2, ChevronDown, MessageCircle } from "lucide-react";
 import { site } from "@/data/site";
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -81,18 +81,24 @@ Message: ${form.message}`;
         />
         <label className="grid gap-2 text-sm font-bold text-white">
           Service needed
-          <select
-            value={form.service}
-            onChange={(event) => updateField("service", event.target.value)}
-            className="h-12 rounded-lg border border-white/10 bg-graphite px-4 text-sm font-semibold text-white outline-none transition focus:border-volt"
-          >
-            <option>New tyres</option>
-            <option>Puncture repair</option>
-            <option>Wheel balancing</option>
-            <option>TPMS sensor support</option>
-            <option>Mobile tyre fitting</option>
-            <option>Other tyre help</option>
-          </select>
+          <div className="relative">
+            <select
+              value={form.service}
+              onChange={(event) => updateField("service", event.target.value)}
+              className="h-12 w-full cursor-pointer appearance-none rounded-lg border border-white/10 bg-graphite pl-4 pr-10 text-sm font-semibold text-white outline-none transition hover:border-white/30 focus:border-volt focus:ring-2 focus:ring-volt/25"
+            >
+              <option>New tyres</option>
+              <option>Puncture repair</option>
+              <option>Wheel balancing</option>
+              <option>TPMS sensor support</option>
+              <option>Mobile tyre fitting</option>
+              <option>Other tyre help</option>
+            </select>
+            <ChevronDown
+              className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-volt transition"
+              aria-hidden="true"
+            />
+          </div>
         </label>
         <Field
           label="Preferred date/time"
