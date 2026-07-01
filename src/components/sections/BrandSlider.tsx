@@ -1,6 +1,25 @@
+import Image from "next/image";
 import { tyreBrands } from "@/data/site";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+
+const brandLogos: Record<string, string> = {
+  Pirelli: "pirelli.png",
+  Bridgestone: "bridgestone.png",
+  Continental: "continental.png",
+  Goodyear: "goodyear.png",
+  Dunlop: "dunlop.png",
+  Michelin: "michelin.png",
+  Uniroyal: "uniroyal.png",
+  Firestone: "firestone.png",
+  Avon: "avon.png",
+  Falken: "falken.png",
+  Toyo: "toyotires.png",
+  Kumho: "kumho.png",
+  Nexen: "nexen.png",
+  Yokohama: "yokohama.webp",
+  Hankook: "hankook.png",
+};
 
 export function BrandSlider() {
   const brands = [...tyreBrands, ...tyreBrands];
@@ -15,16 +34,48 @@ export function BrandSlider() {
           align="center"
         />
       </Container>
-      <div className="brand-marquee mt-10 flex overflow-hidden border-y border-white/10 bg-white/[0.035] py-5">
-        <div className="flex min-w-full animate-[marquee_35s_linear_infinite] gap-4 px-2">
-          {brands.map((brand, index) => (
-            <span
-              key={`${brand}-${index}`}
-              className="rounded-full border border-white/10 bg-white/[0.06] px-5 py-3 text-sm font-black uppercase tracking-[0.16em] text-chrome"
-            >
-              {brand}
-            </span>
-          ))}
+
+      {/* Track / road strip */}
+      <div className="brand-marquee relative mt-10 overflow-hidden border-y border-white/10 bg-[#0a0a0a] py-10">
+        {/* constant dashed white center line, like a road */}
+        <div
+          className="pointer-events-none absolute left-0 top-1/2 h-[3px] w-full -translate-y-1/2"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(90deg, #ffffff 0, #ffffff 30px, transparent 30px, transparent 60px)",
+          }}
+        />
+
+        {/* fade edges so logos ease in/out like a real belt */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-[#0a0a0a] to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-[#0a0a0a] to-transparent" />
+
+        <div className="relative z-20 flex min-w-full animate-[marquee_35s_linear_infinite] items-center gap-6 px-2">
+          {brands.map((brand, index) => {
+            const logo = brandLogos[brand];
+            return (
+              <div
+                key={`${brand}-${index}`}
+                className="group relative flex h-[80px] w-[160px] shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white shadow-[0_4px_20px_rgba(0,0,0,0.4)] ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(255,255,255,0.15)]"
+              >
+                {logo ? (
+                  <div className="relative flex h-full w-full items-center justify-center p-5">
+                    <Image
+                      src={`/images/logosForBrands/${logo}`}
+                      alt={`${brand} logo`}
+                      fill
+                      sizes="120px"
+                      className="object-contain p-3"
+                    />
+                  </div>
+                ) : (
+                  <span className="text-sm font-black uppercase tracking-[0.14em] text-black">
+                    {brand}
+                  </span>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
