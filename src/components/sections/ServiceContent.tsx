@@ -41,12 +41,12 @@ export function ServiceContent({ service }: ServiceContentProps) {
                 {service.process.map((step, index) => (
                   <div
                     key={step}
-                    className="group flex items-start gap-4 rounded-xl border border-white/5 bg-white/[0.03] p-4 transition duration-200 hover:border-volt/40 hover:bg-volt/[0.06]"
+                    className="group flex min-h-[84px] items-center gap-4 rounded-xl border border-white/5 bg-white/[0.03] p-4 transition duration-200 hover:border-volt/40 hover:bg-volt/[0.06]"
                   >
                     <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-volt/40 bg-graphite text-sm font-black text-volt transition duration-200 group-hover:bg-volt group-hover:text-graphite group-hover:shadow-[0_0_16px_-2px_rgba(190,255,60,0.8)]">
                       {index + 1}
                     </span>
-                    <p className="pt-0.5 leading-7 text-chrome transition group-hover:text-white">{step}</p>
+                    <p className="leading-7 text-chrome transition group-hover:text-white">{step}</p>
                   </div>
                 ))}
               </div>
