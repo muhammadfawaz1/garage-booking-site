@@ -319,13 +319,49 @@ export const overviewServices = [
 ] as const;
 
 export const valuePoints = [
-  { title: "Experienced staff", icon: Sparkles },
-  { title: "Modern equipment", icon: Gauge },
-  { title: "Same-day fitting", icon: ShieldCheck },
-  { title: "Walk-ins and appointments", icon: MapPin },
-  { title: "Mobile fitting van", icon: Truck },
-  { title: "All brands and sizes", icon: Car },
-  { title: "No levers, no scratches", icon: ShieldCheck },
-  { title: "Free tyre health check", icon: BatteryCharging },
-  { title: "WhatsApp-first quotes", icon: MessageCircle },
+  {
+    title: "Experienced staff",
+    icon: Sparkles,
+    description: "Our team knows tyres inside out, helping you pick the right option without the upsell."
+  },
+  {
+    title: "Modern equipment",
+    icon: Gauge,
+    description: "Leverless, computer-balanced kit built to handle modern alloy wheels with care."
+  },
+  {
+    title: "Same-day fitting",
+    icon: ShieldCheck,
+    description: "Where stock and diary space allow, we can get your new tyres fitted the same day."
+  },
+  {
+    title: "Walk-ins and appointments",
+    icon: MapPin,
+    description: "Drop in when it suits you, or book ahead — both work fine at GOGO TYRE."
+  },
+  {
+    title: "Mobile fitting van",
+    icon: Truck,
+    description: "Can't get to us? Our mobile van brings the fitting to your home or workplace."
+  },
+  {
+    title: "All brands and sizes",
+    icon: Car,
+    description: "From budget to premium, we stock a wide range of brands and sizes to suit your vehicle."
+  },
+  {
+    title: "No levers, no scratches",
+    icon: ShieldCheck,
+    description: "Leverless fitting protects your alloys from the scuffs and marks traditional tools can cause."
+  },
+  {
+    title: "Free tyre health check",
+    icon: BatteryCharging,
+    description: "Every visit includes a quick check of tread depth, pressure and overall tyre condition."
+  },
+  {
+    title: "WhatsApp-first quotes",
+    icon: MessageCircle,
+    description: "Send a photo or your reg on WhatsApp and get a fast, no-pressure quote back."
+  }
 ];
