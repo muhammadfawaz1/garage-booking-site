@@ -18,7 +18,13 @@ export default function PunctureRepairsNorwichPage() {
     <>
       <JsonLd data={serviceSchema(service)} />
       <JsonLd data={faqSchema(service.faqs)} />
-      <ServiceHero service={service} heroVideo="/puncture-video.mp4" />
+      <ServiceHero
+        title={service.title}
+        eyebrow={service.eyebrow}
+        heroTitle={service.heroTitle}
+        heroText={service.heroText}
+        heroVideo="/puncture-video.mp4"
+      />
       <ServiceContent service={service} />
     </>
   );

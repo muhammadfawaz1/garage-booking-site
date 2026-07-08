@@ -18,7 +18,13 @@ export default function WheelBalancingNorwichPage() {
     <>
       <JsonLd data={serviceSchema(service)} />
       <JsonLd data={faqSchema(service.faqs)} />
-      <ServiceHero service={service} heroVideo="/wheelBalancing.mp4" />
+      <ServiceHero
+  title={service.title}
+  eyebrow={service.eyebrow}
+  heroTitle={service.heroTitle}
+  heroText={service.heroText}
+  heroImage="/images/tyres.png"
+ />
       <ServiceContent service={service} />
     </>
   );

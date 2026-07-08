@@ -18,7 +18,13 @@ export default function MobileTyreFittingNorwichPage() {
     <>
       <JsonLd data={serviceSchema(service)} />
       <JsonLd data={faqSchema(service.faqs)} />
-      <ServiceHero service={service} heroImage="/images/mobileFitting.png" />
+      <ServiceHero
+        title={service.title}
+        eyebrow={service.eyebrow}
+        heroTitle={service.heroTitle}
+        heroText={service.heroText}
+        heroImage="/images/mobileFitting.png"
+      />
       <ServiceContent service={service} />
     </>
   );

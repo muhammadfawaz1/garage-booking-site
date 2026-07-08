@@ -17,7 +17,7 @@ export function ServicesGrid() {
         src="/images/services-bg.png"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover object-center opacity-[0.23]"
+        className="absolute inset-0 h-full w-full object-cover object-center opacity-[0.06]"
       />
 
       {/* Base dark overlay */}
@@ -35,6 +35,7 @@ export function ServicesGrid() {
           eyebrow="Core services"
           title="Everything you expect from a modern tyre garage."
           text="From new tyres and puncture repairs to TPMS support and mobile fitting, GOGO TYRE is set up for fast, clean, professional tyre work in Norwich."
+          titleClassName="font-industrial uppercase font-normal leading-[0.95]"
         />
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -47,17 +48,17 @@ export function ServicesGrid() {
                 href={href}
                 className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-volt rounded-xl"
               >
-                <GlowCard className="h-full transition-all duration-200 group-hover:border-volt/60 group-hover:shadow-[0_0_24px_rgba(180,255,0,0.08)] group-hover:-translate-y-0.5">
+                <GlowCard className="h-full transition-all duration-200 group-hover:border-volt/30 group-hover:-translate-y-0.5">
 
-                  {/* Icon box — volt-green tint, slightly larger for presence */}
-                  <span className="grid h-14 w-14 place-items-center rounded-xl border border-volt/40 bg-volt/10 text-volt shadow-[0_0_12px_rgba(180,255,0,0.15)] transition-colors duration-200 group-hover:border-volt/70 group-hover:bg-volt/15">
+                  {/* Icon box — subtle neutral by default, green only appears on hover */}
+                  <span className="grid h-14 w-14 place-items-center rounded-xl border border-white/10 bg-white/5 text-white/70 transition-colors duration-200 group-hover:border-volt/40 group-hover:bg-volt/10 group-hover:text-volt">
                     <Icon className="h-7 w-7" aria-hidden="true" />
                   </span>
 
                   <h3 className="mt-5 text-xl font-black text-white">{service.title}</h3>
                   <p className="mt-3 min-h-[5.25rem] leading-7 text-chrome">{service.heroText}</p>
 
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-volt">
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-white/80">
                     Explore service
                     <ArrowRight
                       className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"

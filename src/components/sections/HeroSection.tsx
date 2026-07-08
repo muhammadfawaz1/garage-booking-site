@@ -43,8 +43,43 @@ function CountUp({ value, suffix }: { value: number; suffix: string }) {
   }, [inView, motionValue, value, suffix]);
 
   return (
-    <span ref={ref} className="text-4xl font-black text-volt">
+    <span ref={ref} className="text-4xl font-black text-white/90">
       0{suffix}
+    </span>
+  );
+}
+
+// Word-by-word reveal wrapper for headline lines
+function RevealWords({
+  text,
+  className,
+  baseDelay = 0,
+  stagger = 0.09,
+}: {
+  text: string;
+  className?: string;
+  baseDelay?: number;
+  stagger?: number;
+}) {
+  const words = text.split(" ");
+  return (
+    <span className={className}>
+      {words.map((word, i) => (
+        <span key={i} className="inline-block overflow-hidden align-bottom mr-[0.28em] last:mr-0">
+          <motion.span
+            className="inline-block"
+            initial={{ y: "110%", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
+            transition={{
+              delay: baseDelay + i * stagger,
+              duration: 0.7,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+          >
+            {word}
+          </motion.span>
+        </span>
+      ))}
     </span>
   );
 }
@@ -79,42 +114,114 @@ export function HeroSection() {
           className="max-w-2xl"
         >
           {/* Eyebrow */}
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-volt">
+          <motion.p
+            initial={{ opacity: 0, letterSpacing: "0.05em" }}
+            animate={{ opacity: 1, letterSpacing: "0.24em" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex items-center gap-3 text-xs font-black uppercase text-white/60"
+          >
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-volt opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-volt" />
+            </span>
             {site.name} · Norwich tyre garage
-          </p>
+          </motion.p>
 
-          {/* H1 */}
-          <h1 className="mt-4 text-balance text-5xl font-black leading-[0.92] tracking-tight text-white sm:text-6xl lg:text-7xl">
-            Tyres fitted<br />
-            <span className="text-volt">the modern way</span>
+          {/* H1 — word-by-word reveal, aggressive industrial styling */}
+          <h1 className="mt-4 text-balance font-industrial uppercase text-5xl font-normal leading-[0.9] tracking-tight text-white sm:text-6xl lg:text-7xl">
+            <RevealWords text="Tyres fitted" baseDelay={0.1} />
+            <br />
+            <motion.span
+              className="inline-block mr-[0.28em]"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.55, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span className="text-white/90 drop-shadow-[0_0_28px_rgba(255,255,255,0.35)]">
+                the
+              </span>
+            </motion.span>
+            <motion.span
+              className="inline-block mr-[0.28em]"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.64, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <motion.span
+                className="text-volt/60"
+                style={{ WebkitTextStroke: "0.4px rgba(255,255,255,0.4)" }}
+                initial={{ opacity: 1, filter: "brightness(1)" }}
+                animate={{
+                  opacity: [0.85, 1, 0.85],
+                  filter: [
+                    "brightness(1.1) drop-shadow(0 0 18px rgba(217,255,91,0.35)) drop-shadow(0 0 10px rgba(255,255,255,0.25))",
+                    "brightness(1.3) drop-shadow(0 0 28px rgba(217,255,91,0.5)) drop-shadow(0 0 16px rgba(255,255,255,0.35))",
+                    "brightness(1.1) drop-shadow(0 0 18px rgba(217,255,91,0.35)) drop-shadow(0 0 10px rgba(255,255,255,0.25))",
+                  ],
+                }}
+                transition={{
+                  delay: 1.3,
+                  duration: 2.6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                modern
+              </motion.span>
+            </motion.span>
+            <motion.span
+              className="inline-block"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.73, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span className="text-white/90 drop-shadow-[0_0_28px_rgba(255,255,255,0.35)]">
+                way
+              </span>
+            </motion.span>
           </h1>
 
-          {/* Subheadline */}
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-chrome sm:text-lg">
-            New tyres, same-day fitting, walk-ins and appointments — leverless
-            equipment means a rim-safe finish, every time.
-          </p>
+          {/* Subheadline — fade/slide in after headline, with an animated accent underline */}
+          <div className="relative mt-6 max-w-xl">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.15, duration: 0.6, ease: "easeOut" }}
+              className="text-base leading-relaxed text-chrome sm:text-lg"
+            >
+              New tyres, same-day fitting, walk-ins and appointments — leverless
+              equipment means a rim-safe finish, every time.
+            </motion.p>
+          </div>
 
           {/* CTAs */}
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.35, duration: 0.5, ease: "easeOut" }}
+            className="mt-8 flex flex-wrap items-center gap-3"
+          >
             <CTAButton href={whatsappUrl} external icon="whatsapp" iconPosition="left" variant="quote">
               Get a quote
             </CTAButton>
             <CTAButton href={site.phoneHref} icon="phone" iconPosition="left" variant="quote">
               {site.phone}
             </CTAButton>
-          </div>
+          </motion.div>
 
           {/* Feature chips — 3 per row */}
           <div className="mt-8 grid grid-cols-3 gap-2 max-w-lg">
-            {chips.map((chip) => (
-              <span
+            {chips.map((chip, i) => (
+              <motion.span
                 key={chip}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.5 + i * 0.06, duration: 0.4, ease: "easeOut" }}
                 className="rounded-full bg-black/30 px-5 py-2.5 text-sm font-bold text-white backdrop-blur text-center"
-                style={{ border: "1px solid rgba(190,255,0,0.4)" }}
+                style={{ border: "1px solid rgba(255,255,255,0.25)" }}
               >
                 {chip}
-              </span>
+              </motion.span>
             ))}
           </div>
 
@@ -136,7 +243,7 @@ export function HeroSection() {
                 key={stat.label}
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 + i * 0.15, duration: 0.45, ease: "easeOut" }}
+                transition={{ delay: 1.8 + i * 0.15, duration: 0.45, ease: "easeOut" }}
               >
                 <CountUp value={stat.value} suffix={stat.suffix} />
                 <p className="mt-0.5 text-xs leading-snug text-chrome/60 max-w-[90px]">

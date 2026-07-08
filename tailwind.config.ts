@@ -11,6 +11,19 @@ const config: Config = {
         electric: "#22a7ff",
         volt: "#9cff33"
       },
+      fontFamily: {
+        display: ["var(--font-display)", "sans-serif"],
+        body: ["var(--font-body)", "sans-serif"]
+      },
+      keyframes: {
+        shimmer: {
+          "0%": { backgroundPosition: "0% 50%" },
+          "100%": { backgroundPosition: "200% 50%" }
+        }
+      },
+      animation: {
+        shimmer: "shimmer 3.5s ease-in-out infinite"
+      },
       boxShadow: {
         glow: "0 0 45px rgba(34, 167, 255, 0.22)",
         volt: "0 0 35px rgba(156, 255, 51, 0.2)"

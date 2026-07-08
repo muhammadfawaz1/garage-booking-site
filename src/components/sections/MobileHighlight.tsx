@@ -23,18 +23,18 @@ export function MobileHighlight() {
   return (
     <section className="py-20">
       <Container>
-        <div className="rounded-lg border border-white/10 bg-radial-grid p-6 shadow-glow sm:p-8 lg:p-10">
+        <div className="rounded-lg border border-white/10 bg-radial-grid p-6 sm:p-8 lg:p-10">
           <div className="grid gap-10 lg:grid-cols-[1fr_.9fr] lg:items-center">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.22em] text-volt">Mobile tyre van</p>
-              <h2 className="mt-4 text-balance text-3xl font-black tracking-tight text-white sm:text-5xl">
+              <h2 className="mt-4 text-balance font-industrial uppercase text-3xl font-normal leading-[0.95] tracking-tight text-white sm:text-5xl">
                 Tyre fitting that meets you where the car is.
               </h2>
               <p className="mt-5 text-lg leading-8 text-chrome">
                 Ask about mobile tyre fitting at home, at work or a suitable local location around Norwich. Send your tyre size or vehicle registration and preferred time.
               </p>
               <div className="mt-7">
-                <a href={whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-volt/50 bg-graphite/60 px-6 text-sm font-black text-volt transition duration-200 hover:bg-volt hover:text-graphite hover:shadow-[0_0_28px_rgba(180,255,0,0.55)] hover:scale-[1.03]">
+                <a href={whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-volt/50 bg-graphite/60 px-6 text-sm font-black text-volt transition duration-200 hover:bg-volt hover:text-graphite hover:scale-[1.03]">
                   <WhatsAppIcon className="h-5 w-5" />
                   Request Mobile Fitting
                 </a>
@@ -44,8 +44,8 @@ export function MobileHighlight() {
               {items.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <GlowCard key={item.title} className="flex items-center gap-4">
-                    <span className="grid h-11 w-11 place-items-center rounded-lg bg-volt/10 text-volt">
+                  <GlowCard key={item.title} className="group flex items-center gap-4">
+                    <span className="grid h-11 w-11 place-items-center rounded-lg border border-white/10 bg-white/5 text-white/70 transition-colors duration-200 group-hover:border-volt/40 group-hover:bg-volt/10 group-hover:text-volt">
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <h3 className="font-black text-white">{item.title}</h3>

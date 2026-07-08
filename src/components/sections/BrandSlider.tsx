@@ -4,21 +4,21 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const brandLogos: Record<string, string> = {
-  Pirelli: "pirelli.png",
-  Bridgestone: "bridgestone.png",
-  Continental: "continental.png",
-  Goodyear: "goodyear.png",
-  Dunlop: "dunlop.png",
-  Michelin: "michelin.png",
-  Uniroyal: "uniroyal.png",
-  Firestone: "firestone.png",
-  Avon: "avon.png",
-  Falken: "falken.png",
-  Toyo: "toyotires.png",
-  Kumho: "kumho.png",
-  Nexen: "nexen.png",
-  Yokohama: "yokohama.png",
-  Hankook: "hankook.png",
+  Pirelli: "pirelli.webp",
+  Bridgestone: "bridgestone.webp",
+  Continental: "continental.webp",
+  Goodyear: "goodyear.webp",
+  Dunlop: "dunlop.webp",
+  Michelin: "michelin.webp",
+  Uniroyal: "uniroyal.webp",
+  Firestone: "firestone.webp",
+  Avon: "avon.webp",
+  Falken: "falken.webp",
+  Toyo: "toyotires.webp",
+  Kumho: "kumho.webp",
+  Nexen: "nexen.webp",
+  Yokohama: "yokohama.webp",
+  Hankook: "hankook.webp",
 };
 
 export function BrandSlider() {
@@ -32,6 +32,7 @@ export function BrandSlider() {
           title="Budget, mid-range and premium tyres available."
           text="We can help source tyres across trusted names and practical price points for cars, 4x4s, vans, sport vehicles and caravans."
           align="center"
+          titleClassName="font-industrial uppercase font-normal leading-[0.95]"
         />
       </Container>
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Unbounded, Inter } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { StickyMobileCTA } from "@/components/layout/StickyMobileCTA";
@@ -7,6 +8,20 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/data/site";
 import { localBusinessSchema } from "@/lib/seo";
 import "./globals.css";
+
+const unbounded = Unbounded({
+  subsets: ["latin"],
+  weight: ["500", "700", "800", "900"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.domain),
@@ -26,7 +41,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-GB">
+    <html lang="en-GB" className={`${unbounded.variable} ${inter.variable}`}>
       <body>
         <JsonLd data={localBusinessSchema()} />
         <Navbar />

@@ -52,13 +52,14 @@ export function ModernEquipment() {
             eyebrow="Modern equipment"
             title="Built for clean, rim-safe tyre fitting."
             text="GOGO TYRE focuses on new tyres fitted with equipment and processes designed for today's wheels, including alloys that deserve more care than old-school lever methods."
+            titleClassName="font-industrial uppercase font-normal leading-[0.95]"
           />
           <div className="grid gap-5">
             {points.map((point) => {
               const Icon = point.icon;
               return (
-                <GlowCard key={point.title} className="flex gap-5">
-                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg border border-volt/40 bg-volt/10 text-volt shadow-[0_0_12px_rgba(180,255,0,0.15)]">
+                <GlowCard key={point.title} className="group flex gap-5">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg border border-white/10 bg-white/5 text-white/70 transition-colors duration-200 group-hover:border-volt/40 group-hover:bg-volt/10 group-hover:text-volt">
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </span>
                   <span>

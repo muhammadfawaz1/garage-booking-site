@@ -36,7 +36,7 @@ export function ServiceContent({ service }: ServiceContentProps) {
               </div>
             </div>
             <GlowCard>
-              <h2 className="text-2xl font-black text-white">How it works</h2>
+              <h2 className="font-industrial text-3xl font-normal uppercase leading-[0.95] tracking-tight text-white">How it works</h2>
               <div className="mt-7 grid gap-3">
                 {service.process.map((step, index) => (
                   <div
@@ -81,7 +81,7 @@ export function ServiceContent({ service }: ServiceContentProps) {
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {related.map((item) => (
               <Link key={item.slug} href={`/${item.slug}`} className="group rounded-lg border border-white/10 bg-white/[0.055] p-5 transition hover:border-electric/50">
-                <h3 className="font-black text-white">{item.title}</h3>
+                <h3 className="font-industrial text-lg font-normal uppercase tracking-tight text-white">{item.title}</h3>
                 <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-volt">
                   View service
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden="true" />

@@ -18,7 +18,13 @@ export default function TyresNorwichPage() {
     <>
       <JsonLd data={serviceSchema(service)} />
       <JsonLd data={faqSchema(service.faqs)} />
-      <ServiceHero service={service} heroImage="/images/tyres.png" />
+      <ServiceHero
+        title={service.title}
+        eyebrow={service.eyebrow}
+        heroTitle={service.heroTitle}
+        heroText={service.heroText}
+        heroImage="/images/tyres.png"
+      />
       <ServiceContent service={service} />
     </>
   );

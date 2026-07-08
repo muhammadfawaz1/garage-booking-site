@@ -3,6 +3,7 @@ import {
   Car,
   Gauge,
   MapPin,
+  MessageCircle,
   ShieldCheck,
   Sparkles,
   Truck,
@@ -326,4 +327,5 @@ export const valuePoints = [
   { title: "All brands and sizes", icon: Car },
   { title: "No levers, no scratches", icon: ShieldCheck },
   { title: "Free tyre health check", icon: BatteryCharging },
+  { title: "WhatsApp-first quotes", icon: MessageCircle },
 ];

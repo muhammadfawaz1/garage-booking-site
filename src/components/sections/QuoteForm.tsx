@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
-import { CheckCircle2, ChevronDown, MessageCircle } from "lucide-react";
+import { CheckCircle2, ChevronDown, MessageCircle, AlertCircle } from "lucide-react";
 import { site } from "@/data/site";
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -34,9 +34,12 @@ const initialForm: FormState = {
   message: ""
 };
 
+type SubmitStatus = "idle" | "loading" | "success" | "error";
+
 export function QuoteForm() {
   const [form, setForm] = useState<FormState>(initialForm);
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<SubmitStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const whatsappMessage = useMemo(() => {
     return `Hi GOGO TYRE, I need a tyre quote.
@@ -51,22 +54,48 @@ Message: ${form.message}`;
   const whatsappUrl = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
 
   function updateField(field: keyof FormState, value: string) {
-    setSubmitted(false);
+    if (status !== "idle") setStatus("idle");
     setForm((current) => ({ ...current, [field]: value }));
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    // TODO: Replace this demo success state with a real email/API integration when credentials are available.
-    setSubmitted(true);
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.error || "Something went wrong.");
+      }
+
+      setStatus("success");
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(
+        error instanceof Error ? error.message : "Something went wrong sending your quote."
+      );
+    }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-lg border border-white/10 bg-white/[0.055] p-5 shadow-glow sm:p-6">
+    <form onSubmit={handleSubmit} className="rounded-lg border border-white/10 bg-white/[0.055] p-5 sm:p-6">
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Name" value={form.name} onChange={(value) => updateField("name", value)} required />
         <Field label="Phone" type="tel" value={form.phone} onChange={(value) => updateField("phone", value)} required />
-        <Field label="Email" type="email" value={form.email} onChange={(value) => updateField("email", value)} />
+        <Field
+          label="Email"
+          type="email"
+          value={form.email}
+          onChange={(value) => updateField("email", value)}
+          placeholder="you@example.com"
+        />
         <Field
           label="Vehicle registration"
           value={form.registration}
@@ -85,7 +114,7 @@ Message: ${form.message}`;
             <select
               value={form.service}
               onChange={(event) => updateField("service", event.target.value)}
-              className="h-12 w-full cursor-pointer appearance-none rounded-lg border border-white/10 bg-graphite pl-4 pr-10 text-sm font-semibold text-white outline-none transition hover:border-white/30 focus:border-volt focus:ring-2 focus:ring-volt/25"
+              className="h-12 w-full cursor-pointer appearance-none rounded-lg border border-white/10 bg-graphite pl-4 pr-10 text-sm font-semibold text-white outline-none transition hover:border-white/30 focus:border-electric focus:ring-2 focus:ring-electric/30 focus:shadow-[0_0_0_1px_rgba(56,138,221,0.35),0_0_16px_rgba(56,138,221,0.18)]"
             >
               <option>New tyres</option>
               <option>Puncture repair</option>
@@ -113,38 +142,56 @@ Message: ${form.message}`;
             value={form.message}
             onChange={(event) => updateField("message", event.target.value)}
             rows={4}
-            className="resize-none rounded-lg border border-white/10 bg-graphite px-4 py-3 text-sm font-semibold text-white outline-none transition placeholder:text-chrome/60 focus:border-volt"
+            className="resize-none rounded-lg border border-white/10 bg-graphite px-4 py-3 text-sm font-semibold text-white outline-none transition placeholder:text-chrome/60 focus:border-electric focus:shadow-[0_0_0_1px_rgba(56,138,221,0.35),0_0_16px_rgba(56,138,221,0.18)]"
             placeholder="Tell us what you need, where the vehicle is, or upload details by WhatsApp after submitting."
           />
         </label>
       </div>
 
-      <button
-        type="submit"
-        className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-volt/50 bg-graphite px-5 text-sm font-black text-volt shadow-[0_0_25px_-4px_rgba(190,255,60,0.45)] transition hover:border-volt hover:bg-volt hover:text-graphite hover:shadow-volt sm:w-auto"
-      >
-        <WhatsAppIcon className="h-4 w-4" />
-        Get Quote
-      </button>
+      <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+        <button
+          type="submit"
+          disabled={status === "loading"}
+          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-volt/50 bg-graphite px-5 text-sm font-black text-volt transition hover:border-volt hover:bg-volt hover:text-graphite disabled:opacity-60 sm:w-auto"
+        >
+          <MessageCircle className="h-4 w-4" />
+          {status === "loading" ? "Sending..." : "Email Quote Request"}
+        </button>
 
-      {submitted ? (
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-volt/50 bg-graphite px-5 text-sm font-black text-volt transition hover:border-volt hover:bg-volt hover:text-graphite sm:w-auto"
+        >
+          <WhatsAppIcon className="h-4 w-4" aria-hidden="true" />
+          Send on WhatsApp
+        </a>
+      </div>
+
+      {status === "success" ? (
         <div className="mt-5 rounded-lg border border-volt/30 bg-volt/10 p-4">
           <p className="flex items-center gap-2 font-bold text-white">
             <CheckCircle2 className="h-5 w-5 text-volt" aria-hidden="true" />
-            Thanks. Your quote details are ready.
+            Thanks, your quote request has been sent.
           </p>
           <p className="mt-2 text-sm leading-6 text-chrome">
-            This demo form is not connected to email yet. Send the details directly on WhatsApp for the fastest response.
+            {form.email
+              ? "We've emailed you a confirmation. We'll also get back to you shortly."
+              : "We'll get back to you shortly. Add an email above next time for a copy of your request."}
           </p>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-4 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white px-5 text-sm font-black text-graphite transition hover:bg-volt"
-          >
-            <MessageCircle className="h-4 w-4" aria-hidden="true" />
-            Send on WhatsApp
-          </a>
+        </div>
+      ) : null}
+
+      {status === "error" ? (
+        <div className="mt-5 rounded-lg border border-red-500/30 bg-red-500/10 p-4">
+          <p className="flex items-center gap-2 font-bold text-white">
+            <AlertCircle className="h-5 w-5 text-red-400" aria-hidden="true" />
+            {errorMessage || "Something went wrong sending your quote."}
+          </p>
+          <p className="mt-2 text-sm leading-6 text-chrome">
+            Try the WhatsApp button above instead.
+          </p>
         </div>
       ) : null}
     </form>
@@ -171,7 +218,7 @@ function Field({ label, value, onChange, type = "text", required, placeholder, c
         onChange={(event) => onChange(event.target.value)}
         required={required}
         placeholder={placeholder}
-        className="h-12 rounded-lg border border-white/10 bg-graphite px-4 text-sm font-semibold text-white outline-none transition placeholder:text-chrome/60 focus:border-volt"
+        className="h-12 rounded-lg border border-white/10 bg-graphite px-4 text-sm font-semibold text-white outline-none transition placeholder:text-chrome/60 focus:border-electric focus:shadow-[0_0_0_1px_rgba(56,138,221,0.35),0_0_16px_rgba(56,138,221,0.18)]"
       />
     </label>
   );

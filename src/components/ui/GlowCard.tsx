@@ -9,8 +9,8 @@ export function GlowCard({ children, className }: GlowCardProps) {
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.055] p-6 shadow-glow backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-electric/50 hover:bg-white/[0.075]",
-        "before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-electric/70 before:to-transparent",
+        "group relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.055] p-6 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-electric/60 hover:bg-white/[0.075] hover:shadow-[0_0_0_1px_rgba(56,138,221,0.35),0_0_24px_rgba(56,138,221,0.18)]",
+        "before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-electric/60 before:to-transparent before:opacity-0 before:transition before:duration-300 hover:before:opacity-100",
         className
       )}
     >

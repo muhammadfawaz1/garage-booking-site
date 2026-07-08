@@ -24,17 +24,17 @@ export function QuoteCTA() {
     <section id="quote" className="py-20">
       <Container>
         <div className="grid gap-8 lg:grid-cols-[.85fr_1.15fr] lg:items-start">
-          <div className="rounded-lg border border-white/10 bg-radial-grid p-7 shadow-glow">
+          <div className="rounded-lg border border-white/10 bg-radial-grid p-7">
             <p className="text-xs font-black uppercase tracking-[0.22em] text-volt">Get a quote</p>
 
             <div className="mt-5 flex flex-col gap-2">
               {steps.map((step) => (
                 <div key={step.rank} className="flex items-baseline gap-2.5">
-                  <span className="font-black leading-none text-volt text-2xl sm:text-3xl">
+                  <span className="font-industrial font-normal leading-none text-volt text-2xl sm:text-3xl">
                     {step.rank}
                     <sup className="align-super text-xs sm:text-sm text-volt/70">{step.suffix}</sup>
                   </span>
-                  <span className="font-black leading-none text-white text-2xl sm:text-3xl">
+                  <span className="font-industrial uppercase font-normal leading-none text-white text-2xl sm:text-3xl">
                     {step.label}
                   </span>
                 </div>
@@ -50,14 +50,14 @@ export function QuoteCTA() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-volt/50 bg-graphite px-6 text-sm font-black text-volt shadow-[0_0_25px_-4px_rgba(190,255,60,0.45)] transition hover:border-volt hover:bg-volt hover:text-graphite hover:shadow-volt"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-volt/50 bg-graphite px-6 text-sm font-black text-volt transition hover:border-volt hover:bg-volt hover:text-graphite"
               >
                 <WhatsAppIcon className="h-5 w-5" />
                 WhatsApp Quote
               </a>
               <a
                 href={site.phoneHref}
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-volt/50 bg-graphite px-6 text-sm font-black text-volt shadow-[0_0_25px_-4px_rgba(190,255,60,0.45)] transition hover:border-volt hover:bg-volt hover:text-graphite hover:shadow-volt"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-volt/50 bg-graphite px-6 text-sm font-black text-volt transition hover:border-volt hover:bg-volt hover:text-graphite"
               >
                 <Phone className="h-5 w-5" aria-hidden="true" />
                 Call Now
