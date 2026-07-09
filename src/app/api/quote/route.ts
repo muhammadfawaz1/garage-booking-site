@@ -43,7 +43,7 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // --- Brand constants ---
 // Update LOGO_URL to your actual hosted logo path once confirmed.
-const LOGO_URL = "https://gogotyre.co.uk/images/logo.png";
+const LOGO_URL = "https://gogotyre.co.uk/images/Logo.png";
 const SITE_URL = "https://gogotyre.co.uk";
 const BRAND = {
   graphite: "#0b0d10",
@@ -75,7 +75,7 @@ function emailShell(opts: { preheader: string; bodyHtml: string }) {
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                   <tr>
                     <td>
-                      <img src="${LOGO_URL}" alt="GOGO TYRE" height="28" style="display:block;border:0;" />
+                      <img src="${LOGO_URL}" alt="GOGO TYRE" height="32" style="display:block;border:0;max-height:32px;width:auto;" />
                     </td>
                     <td align="right" style="font-size:11px;font-weight:bold;letter-spacing:1px;color:${BRAND.volt};text-transform:uppercase;">
                       Norwich
