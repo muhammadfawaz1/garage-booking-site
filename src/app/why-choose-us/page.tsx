@@ -6,6 +6,7 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import { QuoteCTA } from "@/components/sections/QuoteCTA";
 import { Container } from "@/components/ui/Container";
 import { GlowCard } from "@/components/ui/GlowCard";
+import { HeroTitle } from "@/components/ui/HeroTitle";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { valuePoints } from "@/data/services";
 import { createMetadata } from "@/lib/seo";
@@ -41,13 +42,8 @@ export default function WhyChooseUsPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-graphite via-transparent to-graphite/40" />
         <Container className="relative z-10 py-20">
           <div className="max-w-4xl">
-            <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-black uppercase tracking-[0.24em] text-chrome">
-              <span className="h-1.5 w-1.5 rounded-full bg-volt" />
-              GOGO TYRE · WHY CHOOSE US
-            </p>
-            <h1 className="mt-5 text-balance font-industrial uppercase text-4xl font-normal leading-[0.9] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Built around
-              <span className="block text-volt">cleaner fitting</span>
+            <h1 className="text-balance font-industrial uppercase text-4xl font-normal leading-[0.9] tracking-tight text-white sm:text-6xl lg:text-7xl">
+              <HeroTitle title="Built around {cleaner fitting}" />
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-chrome sm:text-lg">
               We combine experienced staff, modern equipment, convenient booking options and a no levers, no scratches approach for drivers who want tyre work done properly.
