@@ -22,10 +22,10 @@ function compressOne(file) {
     ffmpeg(inputPath)
       .videoCodec("libx265")
       .outputOptions([
-        "-crf 30",              // x265 crf scale is roughly -6 vs x264, so 30 ≈ x264's 33-35 quality but smaller
-        "-preset medium",       // much faster than veryslow, negligible quality loss for background video
-        "-tag:v hvc1",          // makes Safari/iOS actually play the h265 mp4
-        "-vf scale=1280:-2",
+        "-crf 32",
+        "-preset medium",
+        "-tag:v hvc1",
+        "-vf scale=960:-2",
         "-r 24",
         "-movflags +faststart",
       ])
@@ -33,7 +33,9 @@ function compressOne(file) {
       .on("end", () => {
         const newSize = statSync(outputPath).size;
         const savedPct = (((originalSize - newSize) / originalSize) * 100).toFixed(0);
-        console.log(`OK  ${file}  (${(originalSize / 1024 / 1024).toFixed(1)}MB -> ${(newSize / 1024 / 1024).toFixed(1)}MB, -${savedPct}%)`);
+        console.log(
+          `OK  ${file}  (${(originalSize / 1024 / 1024).toFixed(1)}MB -> ${(newSize / 1024 / 1024).toFixed(1)}MB, -${savedPct}%)`
+        );
         resolve();
       })
       .on("error", (err) => {
@@ -44,7 +46,6 @@ function compressOne(file) {
   });
 }
 
-// run N in parallel instead of serially — huge time saver on multi-core machines
 async function runWithConcurrency(items, limit, fn) {
   const results = [];
   let i = 0;
