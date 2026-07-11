@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ShieldCheck, Sparkles, Wrench } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { GlowCard } from "@/components/ui/GlowCard";
@@ -29,11 +30,13 @@ export function ModernEquipment() {
       <div className="absolute inset-0 bg-[#0e0e10]" />
 
       {/* Background image — low opacity so only atmosphere comes through */}
-      <img
-        src="/images/Homepage_Services_Overview_Image.png"
+      <Image
+        src="/images/optimized/Homepage_Services_Overview_Image.webp"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover object-center opacity-[0.29]"
+        fill
+        sizes="100vw"
+        className="object-cover object-center opacity-[0.29]"
       />
 
       {/* Heavy dark overlay — keeps image as texture, not photo */}
