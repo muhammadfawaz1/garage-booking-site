@@ -98,7 +98,7 @@ export function HeroSection() {
         playsInline
         className="absolute inset-0 h-full w-full object-cover object-center"
       >
-        <source src="/herovideo.mp4" type="video/mp4" />
+        <source src="/optimized/herovideo.mp4" type="video/mp4" />
       </video>
 
       {/* Overlays */}
