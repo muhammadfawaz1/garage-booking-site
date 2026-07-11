@@ -114,7 +114,7 @@ Message: ${form.message}`;
             <select
               value={form.service}
               onChange={(event) => updateField("service", event.target.value)}
-              className="h-12 w-full cursor-pointer appearance-none rounded-lg border border-white/10 bg-graphite pl-4 pr-10 text-sm font-semibold text-white outline-none transition hover:border-white/30 focus:border-electric focus:ring-2 focus:ring-electric/30 focus:shadow-[0_0_0_1px_rgba(56,138,221,0.35),0_0_16px_rgba(56,138,221,0.18)]"
+              className="h-12 w-full cursor-pointer appearance-none rounded-lg border border-white/10 bg-graphite pl-4 pr-10 text-base font-semibold text-white outline-none transition hover:border-white/30 focus:border-electric focus:ring-2 focus:ring-electric/30 focus:shadow-[0_0_0_1px_rgba(56,138,221,0.35),0_0_16px_rgba(56,138,221,0.18)] sm:text-sm"
             >
               <option>New tyres</option>
               <option>Puncture repair</option>
@@ -142,7 +142,7 @@ Message: ${form.message}`;
             value={form.message}
             onChange={(event) => updateField("message", event.target.value)}
             rows={4}
-            className="resize-none rounded-lg border border-white/10 bg-graphite px-4 py-3 text-sm font-semibold text-white outline-none transition placeholder:text-chrome/60 focus:border-electric focus:shadow-[0_0_0_1px_rgba(56,138,221,0.35),0_0_16px_rgba(56,138,221,0.18)]"
+            className="resize-none rounded-lg border border-white/10 bg-graphite px-4 py-3 text-base font-semibold text-white outline-none transition placeholder:text-chrome/60 focus:border-electric focus:shadow-[0_0_0_1px_rgba(56,138,221,0.35),0_0_16px_rgba(56,138,221,0.18)] sm:text-sm"
             placeholder="Tell us what you need, where the vehicle is, or upload details by WhatsApp after submitting."
           />
         </label>
@@ -218,7 +218,7 @@ function Field({ label, value, onChange, type = "text", required, placeholder, c
         onChange={(event) => onChange(event.target.value)}
         required={required}
         placeholder={placeholder}
-        className="h-12 rounded-lg border border-white/10 bg-graphite px-4 text-sm font-semibold text-white outline-none transition placeholder:text-chrome/60 focus:border-electric focus:shadow-[0_0_0_1px_rgba(56,138,221,0.35),0_0_16px_rgba(56,138,221,0.18)]"
+        className="h-12 rounded-lg border border-white/10 bg-graphite px-4 text-base font-semibold text-white outline-none transition placeholder:text-chrome/60 focus:border-electric focus:shadow-[0_0_0_1px_rgba(56,138,221,0.35),0_0_16px_rgba(56,138,221,0.18)] sm:text-sm"
       />
     </label>
   );
