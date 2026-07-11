@@ -23,7 +23,7 @@ export default function WheelBalancingNorwichPage() {
   eyebrow={service.eyebrow}
   heroTitle={service.heroTitle}
   heroText={service.heroText}
-  heroImage="/images/tyres.png"
+  heroVideo="/optimized/wheelBalancing.mp4"
  />
       <ServiceContent service={service} />
     </>
