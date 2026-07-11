@@ -21,7 +21,7 @@ export default function ContactPage() {
       <JsonLd data={localBusinessSchema()} />
       <section className="relative overflow-hidden pt-32">
         <Image
-          src="/images/contact.png"
+          src="/images/optimized/contact.webp"
           alt=""
           fill
           priority
@@ -32,7 +32,7 @@ export default function ContactPage() {
         <Container className="relative z-10 py-20">
           <div className="max-w-4xl">
             <h1 className="text-balance font-industrial uppercase text-4xl font-normal leading-[0.9] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              <HeroTitle title="Tyre garage in {Norwich}" />
+              <HeroTitle title="Let's get you {rolling}" />
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-chrome sm:text-lg">
               Visit {site.addressLine}, {site.city} {site.postcode}, call {site.phone}, or send a WhatsApp quote request with your tyre size or vehicle registration.
