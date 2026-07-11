@@ -23,8 +23,10 @@ function compressOne(file) {
     ffmpeg(inputPath)
       .videoCodec("libx264")
       .outputOptions([
-        "-crf 28",
-        "-preset slow",
+        "-crf 33",              // pushed up from 28 — smaller file, still fine for a background/muted video
+        "-preset veryslow",     // squeezes more compression out at the same quality (slower encode, one-time cost)
+        "-vf scale=1280:-2",    // downscale width to 1280px, height auto (kept even for h264 compatibility)
+        "-r 24",                // cap frame rate at 24fps
         "-movflags +faststart",
       ])
       .noAudio()
