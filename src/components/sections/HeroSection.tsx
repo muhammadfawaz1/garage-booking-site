@@ -43,7 +43,7 @@ function CountUp({ value, suffix }: { value: number; suffix: string }) {
   }, [inView, motionValue, value, suffix]);
 
   return (
-    <span ref={ref} className="text-4xl font-black text-white/90">
+    <span ref={ref} className="text-3xl font-black text-white/90 sm:text-4xl">
       0{suffix}
     </span>
   );
@@ -209,8 +209,8 @@ export function HeroSection() {
             </CTAButton>
           </motion.div>
 
-          {/* Feature chips — 3 per row */}
-          <div className="mt-8 grid grid-cols-3 gap-2 max-w-lg">
+          {/* Feature chips — 2 per row on mobile, 3 per row from sm up */}
+          <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 max-w-lg">
             {chips.map((chip, i) => (
               <motion.span
                 key={chip}
@@ -237,7 +237,7 @@ export function HeroSection() {
           </Link>
 
           {/* Stats with count-up */}
-          <div className="mt-6 flex gap-10 border-t border-white/10 pt-6">
+          <div className="mt-6 flex gap-6 border-t border-white/10 pt-6 sm:gap-10">
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
