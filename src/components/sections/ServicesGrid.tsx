@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { overviewServices } from "@/data/services";
@@ -13,11 +14,13 @@ export function ServicesGrid() {
       <div className="absolute inset-0 bg-[#121214]" />
 
       {/* Background image — subtle texture, not a photo */}
-      <img
-        src="/images/services-bg.png"
+      <Image
+        src="/images/optimized/services-bg.webp"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover object-center opacity-[0.06]"
+        fill
+        sizes="100vw"
+        className="object-cover object-center opacity-[0.06]"
       />
 
       {/* Base dark overlay */}
