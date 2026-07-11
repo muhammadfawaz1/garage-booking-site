@@ -12,7 +12,7 @@ export function AreaCoverage() {
             title="Tyre fitting for Norwich and nearby areas."
             text="Visit us on Page Road or ask about mobile tyre fitting around Norwich, including nearby areas where our van can safely support you."
           />
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
             {areas.map((area) => (
               <span
                 key={area}
