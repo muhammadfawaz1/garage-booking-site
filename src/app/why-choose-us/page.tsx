@@ -32,7 +32,7 @@ export default function WhyChooseUsPage() {
     <>
       <section className="relative overflow-hidden pt-32">
         <Image
-          src="/images/whychooseus.png"
+          src="/images/optimized/whychooseus.webp"
           alt=""
           fill
           priority
