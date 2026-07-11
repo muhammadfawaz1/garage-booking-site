@@ -8,7 +8,7 @@ const outputDir = "./public/images/optimized";
 mkdirSync(outputDir, { recursive: true });
 
 function walk(dir) {
-  readdirSync(dir).forEach((file) => {
+  readdirSync(dir).forEach((file) => {npm install sharp
     const fullPath = path.join(dir, file);
     if (statSync(fullPath).isDirectory()) {
       if (fullPath.includes("optimized")) return;
