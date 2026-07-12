@@ -44,11 +44,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en-GB" className={`${unbounded.variable} ${inter.variable}`}>
       <body>
         <JsonLd data={localBusinessSchema()} />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <StickyMobileCTA />
-        <FloatingActions />
+        {/* Explicit stacking layer above the ambient tire background (body::before, z-index: 0) */}
+        <div className="relative z-10">
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <StickyMobileCTA />
+          <FloatingActions />
+        </div>
       </body>
     </html>
   );

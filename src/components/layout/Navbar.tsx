@@ -25,8 +25,22 @@ export function Navbar() {
   const whatsappUrl = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent("Hi GOGO TYRE, I need a tyre quote.")}`;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-graphite/84 backdrop-blur-xl">
-      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+    <header className="fixed inset-x-0 top-0 z-50 overflow-hidden border-b border-white/10 bg-graphite/84 backdrop-blur-xl">
+
+      {/* Subtle tire texture, contained within the navbar only */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-0 hidden w-80 opacity-[0.14] [mask-image:linear-gradient(to_left,black,transparent)] lg:block"
+        style={{
+          backgroundImage: "url('/images/optimized/tyre.webp')",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "-40px center",
+          backgroundSize: "260px auto",
+          filter: "brightness(2.6) contrast(1.1) grayscale(20%)",
+        }}
+      />
+
+      <nav className="relative z-10 mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <Link href="/" className="flex items-center gap-3" aria-label="GOGO TYRE home">
           <span className="relative h-11 w-36 sm:w-44">
             <Image
@@ -82,7 +96,7 @@ export function Navbar() {
       </nav>
 
       {open ? (
-        <div id="mobile-menu" className="border-t border-white/10 bg-graphite/96 px-4 pb-6 pt-2 xl:hidden">
+        <div id="mobile-menu" className="relative z-10 border-t border-white/10 bg-graphite/96 px-4 pb-6 pt-2 xl:hidden">
           <div className="mx-auto grid max-w-7xl gap-1">
             {navLinks.map((link) => (
               <Link

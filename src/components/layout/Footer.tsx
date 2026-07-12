@@ -6,8 +6,22 @@ import { Container } from "@/components/ui/Container";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-black/35 pb-24 pt-14 sm:pb-10">
-      <Container>
+    <footer className="relative overflow-hidden border-t border-white/10 bg-black/35 pb-24 pt-14 sm:pb-10">
+
+      {/* Subtle tire texture, contained within the footer only */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-0 w-96 opacity-[0.12] [mask-image:linear-gradient(to_left,black,transparent)]"
+        style={{
+          backgroundImage: "url('/images/optimized/tyre.webp')",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "right center",
+          backgroundSize: "380px auto",
+          filter: "brightness(2.6) contrast(1.1) grayscale(20%)",
+        }}
+      />
+
+      <Container className="relative z-10">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_.85fr_.85fr]">
           <div>
             <div className="relative h-16 w-56">

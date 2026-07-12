@@ -345,23 +345,8 @@ export const valuePoints = [
     description: "Can't get to us? Our mobile van brings the fitting to your home or workplace."
   },
   {
-    title: "All brands and sizes",
-    icon: Car,
-    description: "From budget to premium, we stock a wide range of brands and sizes to suit your vehicle."
-  },
-  {
     title: "No levers, no scratches",
     icon: ShieldCheck,
     description: "Leverless fitting protects your alloys from the scuffs and marks traditional tools can cause."
-  },
-  {
-    title: "Free tyre health check",
-    icon: BatteryCharging,
-    description: "Every visit includes a quick check of tread depth, pressure and overall tyre condition."
-  },
-  {
-    title: "WhatsApp-first quotes",
-    icon: MessageCircle,
-    description: "Send a photo or your reg on WhatsApp and get a fast, no-pressure quote back."
   }
 ];
